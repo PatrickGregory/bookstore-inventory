@@ -1,4 +1,5 @@
 import React from 'react'
+import BannerCard from '../home/BannerCard';
 
 function Banner() {
     return (
@@ -6,7 +7,7 @@ function Banner() {
             <div className='flex flex-col md:flex-row justify-between w-full items-center gap-12 py-40'>
                 {/* left side */}
                 <div className='md:w-1/2 h-full'>
-                    <h2 className='text-5xl font-bold leading-snug text-black'>Buy and Sell your books</h2>
+                    <h2 className='text-4xl font-bold leading-snug text-black'>Buy and Sell your books</h2>
                     <p className='md:w-4/5'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia officiis amet reprehenderit,
                          ullam necessitatibus pariatur id! Magnam, distinctio deleniti. 
                         Minus unde corporis iste quam tempore dolorem assumenda dolore consequatur dolores!</p>
@@ -17,7 +18,9 @@ function Banner() {
                     </div>
                 </div>
                 {/* right side */}
-                <div>right</div>
+                <div>
+                    <BannerCard/>
+                </div>
             </div>
         </div>
     )
