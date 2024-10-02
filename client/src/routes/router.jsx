@@ -8,6 +8,7 @@ import About from "../components/About";
 import Blog from "../components/Blog";
 import SingleBook from "../components/SingleBook";
 import ErrorPage from "../error-page";
+import Singlebook from "../shop/Singlebook";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
                 path: "/singleBook",
                 element: <SingleBook/>,
             },
+            {
+                path:"/book/:id",
+                element: <Singlebook/>,
+                loader:({params})=>fetch(`http://localhost:5001/book/${params.id}`)
+            }
         ]
     },
 ]);
