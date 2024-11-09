@@ -25,7 +25,8 @@ const bookstoreSchema = new mongoose.Schema({
     imageUrl: String,
     category: String,
     description: String,
-    bookPdfUrl: String
+    bookPdfUrl: String,
+    price: Number,
   });
   const  bookModel = mongoose.model('book', bookstoreSchema);
 

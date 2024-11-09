@@ -1,10 +1,15 @@
-import { React, useEffect, useState } from 'react'
+import { React, useContext, useEffect, useState } from 'react'
 import { FaBarsStaggered, FaBlog, FaXmark } from "react-icons/fa6"
 import { Link } from 'react-router-dom'
+import {AuthContext} from '../contexts/AuthProvider'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+
+  const {user} = useContext(AuthContext)
+  console.log(user)
+
   //toggle menu
   const toggleMenu = () => { setIsMenuOpen(!isMenuOpen) };
   useEffect(() => {
@@ -21,10 +26,9 @@ function Navbar() {
 
   // navItems here
   const navItems = [
-    { link: 'Home', path: '/' },
     { link: 'About', path: '/about' },
     { link: 'Shop', path: '/shop' },
-    { link: 'Sell Your Book', path: '/admin/dashboard' },
+    { link: 'Sell Book', path: '/admin/dashboard' },
     { link: 'Blog', path: '/blog' },
   ]
   return (
@@ -43,11 +47,20 @@ function Navbar() {
               ))
             }
           </ul>
-          {/* button for mobile device */}
+          {/* button for large device */}
           <div className='space-x-20 hidden lg:flex items-center'>
             <button className='bg-blue-800 text-white py-3 px-5 hover:bg-blue-500'>
               <FaBarsStaggered />
             </button>
+            {
+              user ?
+              <div className='flex items-center gap-2'>
+                  <Link to='/profile' className='text-blue-800'>{user.email}</Link>
+                  <Link to={'/logout'} className=' text-blue-800'>Logout</Link>
+              </div>
+              :
+              <Link to='/login' className='text-sm text-blue-800 3xl'>Login</Link>
+            }
           </div>
 
           {/* menu for mobile device */}

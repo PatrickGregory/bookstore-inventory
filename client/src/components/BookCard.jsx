@@ -65,7 +65,7 @@ function BookCard({ headline, books }) {
                                     <h2>{book.authorName}</h2>
                                 </div>
                                 <div>
-                                    <p>$10.00</p>
+                                    <p>${book.price}.00</p>
                                 </div>
                             </div>
                         </Link>
